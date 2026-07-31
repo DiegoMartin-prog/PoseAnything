@@ -12,3 +12,4 @@ data
 output/*
 .idea/*
 pose_anything.egg-info/*
+.venv
