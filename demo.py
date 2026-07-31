@@ -222,8 +222,8 @@ def main():
     data_cfg['image_size'] = np.array([cfg.model.encoder_config.img_size, cfg.model.encoder_config.img_size])
     data_cfg['joint_weights'] = None
     data_cfg['use_different_joint_weights'] = False
-    kp_src_3d = torch.concatenate((kp_src, torch.zeros(kp_src.shape[0], 1)), dim=-1)
-    kp_src_3d_weight = torch.concatenate((torch.ones_like(kp_src), torch.zeros(kp_src.shape[0], 1)), dim=-1)
+    kp_src_3d = torch.cat((kp_src, torch.zeros(kp_src.shape[0], 1)), dim=-1)
+    kp_src_3d_weight = torch.cat((torch.ones_like(kp_src), torch.zeros(kp_src.shape[0], 1)), dim=-1)
     target_s, target_weight_s = genHeatMap._msra_generate_target(data_cfg, kp_src_3d, kp_src_3d_weight, sigma=1)
     target_s = torch.tensor(target_s).float()[None]
     target_weight_s = torch.tensor(target_weight_s).float()[None]
